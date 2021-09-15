@@ -115,20 +115,20 @@ namespace TestProject.MSTest.Sample.Helpers.Facade
             }
         }
 
-        public virtual ActionResult<TResult> PostRequest<TResult, TRequest>(string? requestUri, TResult value)
+        public virtual ActionResult<TResult> PostRequest<TResult, TRequest>(string? requestUri, TRequest value)
             where TResult : class
             where TRequest : class
         {
-            var requestContent = JsonSerializer.Serialize<TResult>(value);
+            var requestContent = JsonSerializer.Serialize<TRequest>(value);
             var httpContent = new StringContent(requestContent);
             return this.PostRequest<TResult>(requestUri, httpContent);
         }
 
-        public virtual ActionResult<TResult> PutRequest<TResult, TRequest>(string? requestUri, TResult value)
+        public virtual ActionResult<TResult> PutRequest<TResult, TRequest>(string? requestUri, TRequest value)
             where TResult : class
             where TRequest : class
         {
-            var requestContent = JsonSerializer.Serialize<TResult>(value);
+            var requestContent = JsonSerializer.Serialize<TRequest>(value);
             var httpContent = new StringContent(requestContent);
             return this.PutRequest<TResult>(requestUri, httpContent);
         }
