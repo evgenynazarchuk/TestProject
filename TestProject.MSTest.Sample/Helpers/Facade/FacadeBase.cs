@@ -45,7 +45,7 @@ namespace TestProject.MSTest.Sample.Helpers.Facade
             return httpResult;
         }
 
-        public virtual HttpResponseMessage PostRequest(string? requestUri, HttpContent httpContent)
+        protected virtual HttpResponseMessage PostRequest(string? requestUri, HttpContent httpContent)
         {
             var httpResult = client.PostAsync(requestUri, httpContent).GetAwaiter().GetResult();
 
@@ -61,7 +61,7 @@ namespace TestProject.MSTest.Sample.Helpers.Facade
             return httpResult;
         }
 
-        public virtual HttpResponseMessage PutRequest(string? requestUri, HttpContent httpContent)
+        protected virtual HttpResponseMessage PutRequest(string? requestUri, HttpContent httpContent)
         {
             var httpResult = client.PutAsync(requestUri, httpContent).GetAwaiter().GetResult();
 
